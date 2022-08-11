@@ -3,23 +3,25 @@ import React, { useState } from 'react';
 export default function Counter({ initialCount }) {
   const [count, setCount] = useState(initialCount);
 
-  function handleSetCountAdd() {
+  function handleSetCountAdd(count) {
     setCount((prevState) => prevState + 1);
   }
 
-  function handleSetCountDecrease() {
+  function handleSetCountDecrease(count) {
     setCount((prevState) => prevState - 1);
   }
 
   return (
     <div className='counter'>
-      Counter Yeah here is your score: {count}
+      Your Score: {count}
+      <button className='increase' onClick={() => handleSetCountAdd(count)}>
+        Increase
+      </button>
       <button
         className='decrease'
-        onClick={() => handleSetCountDecrease(count)}></button>
-      <button
-        className='increase'
-        onClick={() => handleSetCountAdd(count)}></button>
+        onClick={() => handleSetCountDecrease(count)}>
+        Decrease
+      </button>
     </div>
   );
 }
